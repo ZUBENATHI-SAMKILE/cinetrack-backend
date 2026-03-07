@@ -12,7 +12,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'your-local-dev-secret-key-change-this')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-$p9v7=3t#f2xq8!m4@z6&k1r%y5u^c0b*w9s=e2n7l!a3d')
 
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
