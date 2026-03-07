@@ -11,14 +11,14 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# ── Security ──────────────────────────────────────────────────────────
+# Security 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'your-local-dev-secret-key-change-this')
 
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
-# ── Installed Apps ────────────────────────────────────────────────────
+#  Installed Apps 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -34,11 +34,11 @@ INSTALLED_APPS = [
     'movies',
 ]
 
-# ── Middleware ────────────────────────────────────────────────────────
+# Middleware 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',   # ← serves static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',   
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -67,7 +67,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-# ── Database — MongoDB Atlas ──────────────────────────────────────────
+# Database — MongoDB Atlas 
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
@@ -80,7 +80,7 @@ DATABASES = {
     }
 }
 
-# ── Auth ──────────────────────────────────────────────────────────────
+# Auth 
 AUTH_USER_MODEL = 'users.User'
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -90,7 +90,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# ── REST Framework + JWT ──────────────────────────────────────────────
+# REST Framework + JWT
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -105,20 +105,22 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,
 }
 
-# ── CORS ──────────────────────────────────────────────────────────────
+# CORS 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://localhost:3000',
+    'https://cinetrack-frontend-sfak-o1ybuukjs-zubenathis-projects.vercel.app',
     os.environ.get('FRONTEND_URL', 'http://localhost:5173'),
 ]
-CORS_ALLOW_CREDENTIALS = True
 
-# ── Static Files ──────────────────────────────────────────────────────
+CORS_ALLOW_ALL_ORIGINS = True
+
+#  Static Files
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# ── Internationalisation ──────────────────────────────────────────────
+# Internationalisation
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Africa/Johannesburg'
 USE_I18N = True
@@ -127,5 +129,5 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# ── TMDB API Key ──────────────────────────────────────────────────────
+#  TMDB API Key
 TMDB_API_KEY = os.environ.get('TMDB_API_KEY', '')
