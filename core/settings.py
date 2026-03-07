@@ -107,13 +107,13 @@ SIMPLE_JWT = {
 
 # CORS 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
     'http://localhost:3000',
     'https://cinetrack-frontend-sfak-o1ybuukjs-zubenathis-projects.vercel.app',
     os.environ.get('FRONTEND_URL', 'http://localhost:5173'),
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 #  Static Files
 STATIC_URL = '/static/'
