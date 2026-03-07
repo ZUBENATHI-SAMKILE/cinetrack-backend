@@ -2,6 +2,7 @@ services:
   - type: web
     name: cinetrack-backend
     env: python
+    pythonVersion: 3.11
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn core.wsgi:application
     envVars:
