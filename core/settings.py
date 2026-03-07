@@ -74,10 +74,7 @@ DATABASES = {
         'NAME': 'cinetrack',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': os.environ.get(
-                'MONGO_URI',
-                'mongodb+srv://samkilezubenathi_db_user:24256@cluster0.f47vhue.mongodb.net/cinetrack?retryWrites=true&w=majority&appName=Cluster0'
-            ),
+            'host': os.environ.get('MONGO_URI', ''),
             'tlsAllowInvalidCertificates': True,
         }
     }
