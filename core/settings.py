@@ -68,15 +68,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database — MongoDB Atlas 
+import os
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'cinetrack',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': os.environ.get('MONGO_URI', ''),
-            'tlsAllowInvalidCertificates': True,
-        }
+    "default": {
+        "ENGINE": "djongo",
+        "NAME": "cinetrack",
+        "ENFORCE_SCHEMA": False,
+        "CLIENT": {
+            "host": os.environ.get("MONGO_URI"),
+            "connect": True,
+            "serverSelectionTimeoutMS": 5000,
+        },
     }
 }
 

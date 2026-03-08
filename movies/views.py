@@ -4,7 +4,7 @@ from django.db.models import Avg, Count
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from .models import WatchlistItem
 from .serializers import WatchlistItemSerializer, WatchlistItemCreateSerializer
@@ -39,7 +39,7 @@ class SearchMoviesView(APIView):
 
 
 class PopularMoviesView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def get(self, request):
         print(f"TMDB API KEY in use: {settings.TMDB_API_KEY}")
