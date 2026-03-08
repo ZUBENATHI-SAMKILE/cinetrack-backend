@@ -71,15 +71,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 import os
 
 DATABASES = {
-    "default": {
-        "ENGINE": "djongo",
-        "NAME": "cinetrack",
-        "ENFORCE_SCHEMA": False,
-        "CLIENT": {
-            "host": os.environ.get("MONGO_URI"),
-            "connect": True,
-            "serverSelectionTimeoutMS": 5000,
-        },
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'cinetrack',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': os.environ.get('MONGO_URI', ''),
+        }
     }
 }
 
